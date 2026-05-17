@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Haven — Trinidad & Tobago Itinerary 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --pink:#C2185B;--pink-mid:#E91E8C;--pink-light:#FCE4EC;--pink-pale:#FFF0F5;
+    --rose:#AD1457;--rose-dark:#880E4F;
+    --text:#2A1020;--text-mid:#5A3048;--text-light:#9C7A8A;
+    --border:rgba(194,24,91,0.18);
+  }
+  body{background:#FFF6F9;font-family:'DM Sans',sans-serif;color:var(--text);max-width:720px;margin:0 auto;padding-bottom:3rem}
+
+  .header{background:linear-gradient(135deg,var(--rose-dark),var(--pink));padding:2.5rem 2rem 2rem;position:relative;overflow:hidden}
+  .header::before{content:'';position:absolute;top:-40px;right:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.1);pointer-events:none}
+  .header::after{content:'';position:absolute;bottom:-60px;left:-30px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.07);pointer-events:none}
+  .brand{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:#FFB3D1;margin-bottom:0.5rem}
+  .trip-title{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:0.4rem}
+  .trip-sub{font-size:14px;color:rgba(255,255,255,0.7);font-weight:300;letter-spacing:0.5px}
+  .guests-row{display:flex;gap:8px;margin-top:1.4rem;flex-wrap:wrap}
+  .guest-pill{background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.4);border-radius:20px;padding:5px 16px;font-size:12px;color:#fff;font-weight:500;letter-spacing:0.5px}
+
+  .property-card{margin:1.5rem 1.5rem 0;background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;box-shadow:0 2px 16px rgba(194,24,91,0.08)}
+  .property-top{background:linear-gradient(135deg,var(--pink-mid),var(--rose-dark));padding:1.1rem 1.3rem;display:flex;align-items:center;gap:14px}
+  .property-icon{width:42px;height:42px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px}
+  .property-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:#fff}
+  .property-loc{font-size:12px;color:rgba(255,255,255,0.7);margin-top:3px}
+  .property-bottom{padding:1rem 1.3rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+  .prop-stat{text-align:center;padding:0 0.5rem}
+  .prop-stat+.prop-stat{border-left:1px solid var(--border)}
+  .prop-val{font-size:16px;font-weight:600;color:var(--pink);font-family:'Playfair Display',serif}
+  .prop-label{font-size:11px;color:var(--text-light);margin-top:3px;letter-spacing:0.3px}
+
+  .section-label{padding:1.5rem 1.5rem 0.6rem;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--rose);font-weight:500}
+
+  .day-card{margin:0 1.5rem 0.85rem;background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;box-shadow:0 1px 8px rgba(194,24,91,0.05)}
+  .day-card.arrival{border-color:rgba(194,24,91,0.4);box-shadow:0 2px 14px rgba(194,24,91,0.12)}
+  .day-header{display:flex;align-items:stretch;cursor:pointer;text-decoration:none}
+  .day-num-block{background:linear-gradient(160deg,var(--pink-mid),var(--rose-dark));padding:1rem 1.1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:74px}
+  .day-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#fff;line-height:1}
+  .day-word{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:3px}
+  .day-info{flex:1;padding:0.9rem 1rem}
+  .day-date{font-size:11px;color:var(--text-light);letter-spacing:0.3px;margin-bottom:3px}
+  .day-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--text);line-height:1.2}
+  .day-badge{margin-top:5px}
+  .badge{display:inline-block;font-size:10px;font-weight:500;letter-spacing:0.5px;border-radius:20px;padding:3px 11px}
+  .badge-gold{background:var(--pink-light);color:var(--rose-dark)}
+  .badge-green{background:#FFF0F5;color:var(--pink)}
+  .badge-blue{background:#FDE8F3;color:var(--rose)}
+  .toggle-icon{padding:0 1.1rem;color:var(--text-light);font-size:20px;display:flex;align-items:center;transition:transform 0.25s;user-select:none}
+  .toggle-icon.open{transform:rotate(180deg)}
+
+  .day-body{display:none;padding-bottom:1rem}
+  .day-body.open{display:block}
+
+  .timeline{padding:0.5rem 1.1rem 0}
+  .tl-item{display:flex;gap:12px;padding:0.6rem 0}
+  .tl-item+.tl-item{border-top:1px dashed rgba(194,24,91,0.1)}
+  .tl-dot{width:9px;height:9px;border-radius:50%;background:var(--pink-mid);flex-shrink:0;margin-top:5px}
+  .tl-time{font-size:11px;color:var(--text-light);font-weight:300;white-space:nowrap;min-width:56px;margin-top:2px}
+  .tl-title{font-size:14px;font-weight:500;color:var(--text);line-height:1.3}
+  .tl-note{font-size:12px;color:var(--text-mid);margin-top:3px;line-height:1.5;font-weight:300}
+  .tl-tag{display:inline-block;font-size:10px;font-weight:500;background:var(--pink-light);color:var(--rose-dark);border-radius:4px;padding:2px 8px;margin-top:4px}
+
+  .biz-banner{margin:0.8rem 1.1rem 0;background:linear-gradient(135deg,var(--pink-mid),var(--rose-dark));border-radius:10px;padding:0.85rem 1.1rem;display:flex;align-items:center;gap:12px}
+  .biz-icon{width:34px;height:34px;background:rgba(255,255,255,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
+  .biz-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#FFB3D1;font-weight:500}
+  .biz-name{font-family:'Playfair Display',serif;font-size:15px;color:#fff;font-weight:600;line-height:1.2}
+  .biz-desc{font-size:11px;color:rgba(255,255,255,0.6);margin-top:2px}
+
+  .footer{margin:1.5rem 1.5rem 0;background:linear-gradient(135deg,var(--pink-mid),var(--rose-dark));border-radius:14px;padding:1.5rem;text-align:center}
+  .footer-brand{font-family:'Playfair Display',serif;font-size:20px;color:#fff;font-weight:700;letter-spacing:0.5px}
+  .footer-tag{font-size:12px;color:rgba(255,255,255,0.65);margin-top:5px;font-weight:300;letter-spacing:0.5px}
+  .divider{height:1px;background:rgba(255,255,255,0.2);margin:1.1rem 0}
+  .footer-detail{font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:0.3px}
+
+  @media print{
+    .day-body{display:block!important}
+    .toggle-icon{display:none}
+    .day-card{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="brand">✦ Travel Haven Presents</div>
+  <div class="trip-title">Trinidad & Tobago<br>Family Journey</div>
+  <div class="trip-sub">Florida → Port of Spain &nbsp;·&nbsp; June 3 – 10, 2026</div>
+  <div class="guests-row">
+    <span class="guest-pill">Beres</span>
+    <span class="guest-pill">Cindy</span>
+    <span class="guest-pill">Cianna</span>
+  </div>
+</div>
+
+<div class="property-card">
+  <div class="property-top">
+    <div class="property-icon">🏡</div>
+    <div>
+      <div class="property-name">Oasis at Paxvale Airbnb</div>
+      <div class="property-loc">📍 Pax Vale, Trinidad</div>
+    </div>
+  </div>
+  <div class="property-bottom">
+    <div class="prop-stat">
+      <div class="prop-val">8</div>
+      <div class="prop-label">Nights</div>
+    </div>
+    <div class="prop-stat">
+      <div class="prop-val">Jun 3</div>
+      <div class="prop-label">Arrival</div>
+    </div>
+    <div class="prop-stat">
+      <div class="prop-val">Jun 11</div>
+      <div class="prop-label">Departure</div>
+    </div>
+  </div>
+</div>
+
+<div class="section-label">Day-by-Day Schedule</div>
+<div id="days"></div>
+
+<div class="footer">
+  <div class="footer-brand">✦ Travel Haven ✦</div>
+  <div class="footer-tag">Your Journey, Curated with Care</div>
+  <div class="divider"></div>
+  <div class="footer-detail">Crafting seamless travel experiences for families across the Caribbean</div>
+</div>
+
+<script>
+const days = [
+  {
+    num:"03",word:"Wed",date:"June 3, 2026",title:"Arrival Day",badge:{text:"Arrival ✈",cls:"badge-gold"},arrival:true,
+    items:[
+      {time:"7:30 PM",title:"Arrive at Piarco International Airport",note:"Clear immigration, collect luggage, and take a breath — you're in Trinidad!",tag:"Arrival"},
+      {time:"8:30 PM",title:"Transfer to Oasis at Paxvale",note:"Head to your Airbnb. Settle in, freshen up, and take in your home for the next 8 nights."},
+      {time:"Evening",title:"Rest & Settle In",note:"Light snacks, unpack, and relax. No agenda tonight — the real adventure starts tomorrow."}
+    ],
+    biz:null
+  },
+  {
+    num:"04",word:"Thu",date:"June 4, 2026",title:"Family Business Day",badge:{text:"Business",cls:"badge-blue"},
+    items:[
+      {time:"Morning",title:"Business meetings & errands",note:"Dedicated time for family business — take care of what matters most.",tag:"Business Day"},
+      {time:"Afternoon",title:"Follow-up & administration",note:"Continue meetings, handle any paperwork or planning needed."},
+      {time:"Evening",title:"Family dinner at the Oasis",note:"Wind down with a quiet dinner together — debrief and relax."}
+    ],
+    biz:{label:"Powered by",name:"Travel Haven",desc:"Logistics & itinerary management support",icon:"💼"}
+  },
+  {
+    num:"05",word:"Fri",date:"June 5, 2026",title:"Bowling Night 🎳",badge:{text:"Activity Night",cls:"badge-green"},
+    items:[
+      {time:"Daytime",title:"Free morning — rest or explore",note:"Pool time, local walk, or grocery run near Paxvale."},
+      {time:"6:00 PM",title:"Head to The Alley, Trincity",note:"Trinidad's top bowling venue with music, food, arcade games and great vibes."},
+      {time:"7:00 PM",title:"Bowling & games",note:"Reserve lanes in advance. Wear sneakers (shoe rentals available on-site). Full restaurant and bar menu.",tag:"📞 Book ahead"},
+      {time:"10:00 PM",title:"Return to Oasis",note:""}
+    ],
+    biz:{label:"Curated by",name:"Travel Haven",desc:"Reservation assistance & local insider tips",icon:"🎳"}
+  },
+  {
+    num:"06",word:"Sat",date:"June 6, 2026",title:"Road Trip — Toco",badge:{text:"Road Trip 🚗",cls:"badge-gold"},
+    items:[
+      {time:"7:00 AM",title:"Early departure from Oasis",note:"Pack water, snacks & sunscreen. Toco is a scenic ~1.5 hr drive northeast through lush countryside.",tag:"🌅 Early Start"},
+      {time:"9:00 AM",title:"Arrive in Toco",note:"Explore Toco Bay, Galera Point Lighthouse, and the rugged northeast Atlantic coastline."},
+      {time:"Midday",title:"Lunch at a local Toco spot",note:"Fresh fish, bake & shark, or roadside snacks — Toco vendors are the real deal."},
+      {time:"Afternoon",title:"Beach & sightseeing",note:"Enjoy some of Trinidad's most untouched, beautiful beaches and dramatic Atlantic views."},
+      {time:"4:30 PM",title:"Depart back to Oasis",note:""}
+    ],
+    biz:{label:"Trip planning by",name:"Travel Haven",desc:"Route coordination & local recommendations",icon:"🗺️"}
+  },
+  {
+    num:"07",word:"Sun",date:"June 7, 2026",title:"Dinner at Chapter 4",badge:{text:"Fine Dining",cls:"badge-green"},
+    items:[
+      {time:"Daytime",title:"Leisure day at the Oasis",note:"Rest and recharge after the Toco road trip. Pool, relaxation, recovery."},
+      {time:"6:30 PM",title:"Depart for Chapter 4",note:"Head to Valpark Shopping Plaza, Valsayn. Make a reservation in advance.",tag:"📞 Reserve table"},
+      {time:"7:00 PM",title:"Dinner at Chapter 4",note:"Upbeat restaurant-meets-nightclub vibe. Great food, creative menu, and excellent customer service."},
+      {time:"9:30 PM",title:"Return to Oasis",note:""}
+    ],
+    biz:{label:"Restaurant selected by",name:"Travel Haven",desc:"Dining curation & reservation reminders",icon:"🍽️"}
+  },
+  {
+    num:"08",word:"Mon",date:"June 8, 2026",title:"Road Trip — Maracas Beach",badge:{text:"Road Trip 🚗",cls:"badge-gold"},
+    items:[
+      {time:"7:30 AM",title:"Early start from Oasis",note:"Beat the crowds! The drive over the Northern Range is one of Trinidad's most scenic routes.",tag:"🌅 Leave early"},
+      {time:"9:00 AM",title:"Arrive Maracas Bay",note:"Trinidad's most beloved beach — golden sand, warm Caribbean waters, and lush green mountains all around."},
+      {time:"9:30 AM",title:"Bake & Shark — a Maracas staple",note:"Try Richard's or Natalie's for the iconic bake & shark loaded with all the toppings."},
+      {time:"Midday",title:"Beach time — swim, relax, explore",note:"Soak it all in. Stay hydrated, apply sunscreen, and enjoy every moment."},
+      {time:"3:30 PM",title:"Drive back to Oasis",note:"Stop at a Northern Range lookout for a stunning sunset photo opportunity."}
+    ],
+    biz:{label:"Coordinated by",name:"Travel Haven",desc:"Beach day logistics & local safety tips",icon:"🏖️"}
+  },
+  {
+    num:"09",word:"Tue",date:"June 9, 2026",title:"Games Night & Potluck",badge:{text:"Family Bonding",cls:"badge-green"},
+    items:[
+      {time:"Morning",title:"Assign potluck dishes",note:"Everyone picks their signature dish! Plan who cooks what and divide any grocery runs.",tag:"🥘 Potluck"},
+      {time:"Afternoon",title:"Cook & prep together",note:"Turn the kitchen into a family affair — music on, stories shared, pots bubbling."},
+      {time:"6:00 PM",title:"Potluck dinner",note:"Lay it all out family-style and feast together. No restaurant needed tonight."},
+      {time:"7:30 PM",title:"Games night",note:"Cards, dominoes, board games — whatever brings the most laughs and the most competitive energy."},
+      {time:"Late Evening",title:"Family bonding",note:"Share memories, tell stories, and cherish this time together before the trip winds down."}
+    ],
+    biz:null
+  },
+  {
+    num:"10",word:"Wed",date:"June 10, 2026",title:"Free Day — Departure Prep",badge:{text:"Departure Prep",cls:"badge-blue"},
+    items:[
+      {time:"Morning",title:"Slow, peaceful morning",note:"No schedule today. Sleep in and enjoy the Oasis one final time."},
+      {time:"Midday",title:"Pack & organise",note:"Suitcases packed, rooms swept, nothing left behind. Double-check all documents & passports."},
+      {time:"Afternoon",title:"Final Trinidad moments",note:"A last swim, one more meal, a quiet walk — soak in every last bit of Trinidad."},
+      {time:"Evening",title:"Depart for Piarco International Airport",note:"Allow 2+ hours before your flight. Safe travels back to Florida — until next time! ✈"}
+    ],
+    biz:{label:"Departure arranged by",name:"Travel Haven",desc:"Transfer coordination & airport assistance",icon:"✈️"}
+  }
+];
+
+const container = document.getElementById('days');
+
+days.forEach((d,i)=>{
+  const card = document.createElement('div');
+  card.className='day-card'+(d.arrival?' arrival':'');
+
+  let bizHTML='';
+  if(d.biz){
+    bizHTML=`<div class="biz-banner"><div class="biz-icon">${d.biz.icon}</div><div><div class="biz-label">${d.biz.label}</div><div class="biz-name">${d.biz.name}</div><div class="biz-desc">${d.biz.desc}</div></div></div>`;
+  }
+
+  const tlHTML=d.items.map(it=>`
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div style="flex:1">
+        <div style="display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap">
+          <span class="tl-time">${it.time}</span>
+          <div style="flex:1">
+            <div class="tl-title">${it.title}</div>
+            ${it.note?`<div class="tl-note">${it.note}</div>`:''}
+            ${it.tag?`<span class="tl-tag">${it.tag}</span>`:''}
+          </div>
+        </div>
+      </div>
+    </div>`).join('');
+
+  card.innerHTML=`
+    <div class="day-header" onclick="toggle(${i})" role="button" tabindex="0">
+      <div class="day-num-block">
+        <div class="day-num">${d.num}</div>
+        <div class="day-word">${d.word}</div>
+      </div>
+      <div class="day-info">
+        <div class="day-date">${d.date}</div>
+        <div class="day-title">${d.title}</div>
+        <div class="day-badge"><span class="badge ${d.badge.cls}">${d.badge.text}</span></div>
+      </div>
+      <div class="toggle-icon" id="chev-${i}">▾</div>
+    </div>
+    <div class="day-body" id="body-${i}">
+      ${bizHTML}
+      <div class="timeline">${tlHTML}</div>
+    </div>`;
+  container.appendChild(card);
+});
+
+function toggle(i){
+  const body=document.getElementById('body-'+i);
+  const chev=document.getElementById('chev-'+i);
+  const isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  chev.classList.toggle('open',!isOpen);
+}
+
+document.addEventListener('keydown',e=>{
+  if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('day-header')){
+    e.preventDefault();
+    e.target.click();
+  }
+});
+</script>
+</body>
+</html>
